@@ -1,0 +1,25 @@
+#oldtwits{
+	height: calc(100vh - 100px);
+	padding-top: 50px;
+	overflow-y: auto;
+}
+
+#oldtwits > .message{
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+#oldtwits > .message > .author{
+	margin-right: 10px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#oldtwits > .message > .date{
+	font-size: 14px;
+}
+
+#oldtwits > .message > p{
+	padding-top: 20px;
+}

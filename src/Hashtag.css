@@ -1,0 +1,8 @@
+#sidebar1 > ul{
+	padding: 20px;
+}
+
+#sidebar1 > ul > li{
+	padding:10px;
+	cursor: pointer;
+}
