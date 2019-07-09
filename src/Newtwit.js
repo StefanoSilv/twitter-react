@@ -11,7 +11,14 @@ class Newtwit extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<div id="newtwit" class="">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Your next twit..." aria-label="Recipient's username" aria-describedby="button-addon2" />
+					<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+					</div>
+				</div>
+			</div>
 		)
 	}
 }

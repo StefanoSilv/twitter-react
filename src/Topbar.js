@@ -11,7 +11,7 @@ class Topbar extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<div id="topbar"><h1>TORTUGA TWITTER</h1></div>
 		)
 	}
 }
