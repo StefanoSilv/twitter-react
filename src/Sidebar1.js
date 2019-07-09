@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Sidebar1.css';
+import Hashtag from './Hashtag'
 
 class Sidebar1 extends Component {
 	// Data
@@ -11,7 +12,7 @@ class Sidebar1 extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<Hashtag />
 		)
 	}
 }

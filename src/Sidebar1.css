@@ -8,3 +8,7 @@
 #sidebar1 > h3{
 	font-style: italic;
 }
+
+#sidebar1 > ul{
+	padding: 20px;
+}

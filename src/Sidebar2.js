@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './App.css';
+import './Sidebar2.css';
+import Logout from './Logout'
 
 class Sidebar2 extends Component {
 	// Data
@@ -11,9 +12,9 @@ class Sidebar2 extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<Logout />
 		)
 	}
 }
 
-export default App;
+export default Sidebar2;

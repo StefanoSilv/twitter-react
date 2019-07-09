@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Content.css';
+import Newtwit from './Newtwit'
+import Oldtwits from './Oldtwits'
 
 class Content extends Component {
 	// Data
@@ -11,7 +13,10 @@ class Content extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<div>
+			<Newtwit />
+			<Oldtwits />
+			</div>
 		)
 	}
 }
