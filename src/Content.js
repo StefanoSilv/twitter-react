@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
+import './Content.css';
 
-class App extends Component {
+class Content extends Component {
 	// Data
 	state = {
 
@@ -16,4 +16,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default Content;
