@@ -12,7 +12,13 @@ class Sidebar2 extends Component {
 	// Render
 	render() {
 		return (
-			<Logout />
+			<div id="sidebar2" class="col-3">
+				<div id="photo_profile" class=""></div>
+				<div id="logged_in"><span class="glyphicon glyphicon-user">
+					</span><span>Logged as </span><span class="author">Stefano</span>
+				</div>
+				<Logout />
+			</div>
 		)
 	}
 }

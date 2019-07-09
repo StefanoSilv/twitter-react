@@ -11,7 +11,9 @@ class Logout extends Component {
 	// Render
 	render() {
 		return (
-			<h1>Hello</h1>
+			<div className="text-center">
+				<button type="button" className="btn btn-secondary">Log-out</button>
+			</div>
 		)
 	}
 }
