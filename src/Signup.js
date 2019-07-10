@@ -44,15 +44,17 @@ class Signup extends Component {
 		}
 	}
 
-	//Function to make the password visible
-	// showPassword() {
-	//   var x = document.getElementById("exampleInputPassword1");
-	//   if (x.type = "password") {
-	//     x.type = "text";
-	//   } else {
-	//     x.type = "password";
-	//   }
-	// }
+	// Function to make the password visible
+	showPassword(e) {
+		if(e){
+			var x = document.getElementById("exampleInputPassword1");
+		  if (x.type === "password") {
+		    x.type = "text";
+		  } else {
+		    x.type = "password";
+		  }
+		}
+	}
 
 	// Render
 	render() {
@@ -77,7 +79,7 @@ class Signup extends Component {
 						className="form-control" id="exampleInputPassword1" placeholder="Password" />
 					</div>
 					<div className="form-group form-check">
-						<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+						<input onClick={ (e) => this.showPassword(e) } type="checkbox" className="form-check-input" id="exampleCheck1" />
 						<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
 					</div>
 					<button type="submit" className="btn btn-primary">Submit</button>
