@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './Login.css';
+import axios from 'axios'
 
 class Login extends Component {
 	// Data
 	state = {
 		email:'',
-		password:''
+		password:'',
+		error:''
 	}
 	// Functions
 	//Same functions which are in the signup components to change the value field
@@ -17,26 +19,44 @@ class Login extends Component {
 		this.setState({password: e.target.value})
 	}
 
+	login = (e) => {
+		e.preventDefault()
+		axios.post('http://localhost:4000/api/login', this.state).then( (res) => {
+			if(!res.data.token){
+				this.setState({
+					error: res.data
+			})}else{
+				this.setState({
+					error: ''
+				})
+			}
+			localStorage.setItem('token', res.data.token)
+			this.props.auth()
+		}).catch( (err) => {
+			console.log('err', err)
+		})
+	}
+
 	// Render
 	render() {
 		return (
 			<form>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
+				<div className="form-group">
+					<label htmlFor="exampleInputEmail1">Email address</label>
 					<input type="email" value={this.state.email} onChange={(e) => this.changeEmail(e)}
-					class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-					<small id="emailHelp" class="form-text text-muted">Enter a valid Email address</small>
+					className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+					<small id="emailHelp" className="form-text text-muted">Enter a valid Email address</small>
 				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
+				<div className="form-group">
+					<label htmlFor="exampleInputPassword1">Password</label>
 					<input type="password" value={this.state.password} onChange={(e) => this.changePassword(e)}
-					class="form-control" id="exampleInputPassword1" placeholder="Password" />
+					className="form-control" id="exampleInputPassword1" placeholder="Password" />
 				</div>
-				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1" />
-					<label class="form-check-label" for="exampleCheck1">Show password</label>
+				<div className="form-group form-check">
+					<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+					<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
 		)
 	}

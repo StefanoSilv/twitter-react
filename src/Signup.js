@@ -36,7 +36,6 @@ class Signup extends Component {
 		}).catch( (err) => {
 			console.log('err', err)
 		})
-
 	}
 
 	//Function to make the password visible
@@ -54,18 +53,18 @@ class Signup extends Component {
 		return (
 			<form onSubmit={ (e) => this.signup(e)} >
 				<div className="form-group">
-					<label for="exampleInputEmail1">Nickname</label>
+					<label htmlFor="exampleInputEmail1">Nickname</label>
 					<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
 					className="form-control" id="exampleInputEmail1" placeholder="Enter nickname..." />
 				</div>
 				<div className="form-group">
-					<label for="exampleInputEmail1">Email address</label>
+					<label htmlFor="exampleInputEmail1">Email address</label>
 					<input type="email" value={this.state.email} onChange={(e) => this.changeEmail(e)}
 					className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
 					<small id="emailHelp" className="form-text text-muted">Enter a valid Email address</small>
 				</div>
 				<div className="form-group">
-					<label for="exampleInputPassword1">Password</label>
+					<label htmlFor="exampleInputPassword1">Password</label>
 					<input type="password" value={this.state.password} onChange={(e) => this.changePassword(e)}
 					className="form-control" id="exampleInputPassword1" placeholder="Password" />
 				</div>

@@ -7,12 +7,19 @@ class Logout extends Component {
 
 	}
 	// Functions
+	//Function that remove the local storage and redirect you to the loginpage
+	logout = (e) => {
+		e.preventDefault()
+		localStorage.removeItem('token')
+		window.location.href = '/login'
+	}
 
 	// Render
 	render() {
 		return (
 			<div className="text-center">
-				<button type="button" className="btn btn-secondary">Log-out</button>
+				<button type="submit" onSubmit={ (e) => this.logout(e)}
+				className="btn btn-secondary">Log-out</button>
 			</div>
 		)
 	}
