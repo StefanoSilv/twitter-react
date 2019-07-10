@@ -29,7 +29,9 @@ class Routes extends Component {
 				<Switch>
 					<Route path="/login" component={() => <Login auth={this.auth} />} />
 					<Route path="/signup" component={() => <Signup auth={this.auth} />} />
-					<Route path="/" render={() => <App />} />
+					<Route path="/" render={ () => (
+						this.checkAuth() ? (<App />) : (<Redirect to="/login" />)
+					)} />
 				</Switch>
 			</BrowserRouter>
 		)
