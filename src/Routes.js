@@ -5,6 +5,20 @@ import App from './App'
 import Login from './Login'
 
 class Routes extends Component {
+	//state
+
+	//Functions
+	//A function which returns true if there is a token in the local storage
+	checkAuth = () => {
+		if(localStorage.getItem('token')){
+			return true
+		}else{
+			return false
+		}
+	}
+
+	
+
 	render() {
 		return (
 			<BrowserRouter>
