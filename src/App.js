@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Sidebar1 from './Sidebar1'
 import Sidebar2 from './Sidebar2'
@@ -16,11 +17,19 @@ class App extends Component {
 	// Render
 	render() {
 		return (
-			<div>
-			<Topbar />
-			<Sidebar1 />
-			<Content />
-			<Sidebar2 />
+			<div id="wrap">
+				<Topbar />
+				<div class="container-fluid">
+					<div class="row no-gutters">
+						<Sidebar1 />
+						<div id="content" class="col-6">
+							<div class="row no-gutters d-flex flex-column">
+								<Content />
+							</div>
+						</div>
+						<Sidebar2 />
+					</div>
+				</div>
 			</div>
 		)
 	}
