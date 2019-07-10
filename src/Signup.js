@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Signup.css';
+import axios from 'axios'
 
 class Signup extends Component {
 	// Data
@@ -25,10 +26,32 @@ class Signup extends Component {
 		this.setState({password: e.target.value})
 	}
 
+	//Function which prevent the default after submitting and which
+	//allow to save the data in the database
+	signup = (e) => {
+		e.preventDefault()
+		axios.post('http://localhost:4000/api/signup', this.state).then( (res) =>{
+			localStorage.setItem('token', res.data.token)
+		}).catch( (err) => {
+			console.log('err', err)
+		})
+
+	}
+
+	//Function to make the password visible
+	// showPassword() {
+	//   var x = document.getElementById("exampleInputPassword1");
+	//   if (x.type = "password") {
+	//     x.type = "text";
+	//   } else {
+	//     x.type = "password";
+	//   }
+	// }
+
 	// Render
 	render() {
 		return (
-			<form>
+			<form onSubmit={ (e) => this.signup(e)} >
 				<div className="form-group">
 					<label for="exampleInputEmail1">Nickname</label>
 					<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
@@ -46,7 +69,7 @@ class Signup extends Component {
 					className="form-control" id="exampleInputPassword1" placeholder="Password" />
 				</div>
 				<div className="form-group form-check">
-					<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+					<input type="checkbox" onclick={ () => this.showPassword()} className="form-check-input" id="exampleCheck1" />
 					<label className="form-check-label" for="exampleCheck1">Show password</label>
 				</div>
 				<button type="submit" className="btn btn-primary">Submit</button>
