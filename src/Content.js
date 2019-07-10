@@ -13,9 +13,11 @@ class Content extends Component {
 	// Render
 	render() {
 		return (
-			<div>
-			<Newtwit />
-			<Oldtwits />
+			<div id="content" className="col-6">
+				<div className="row no-gutters d-flex flex-column">
+					<Newtwit />
+					<Oldtwits />
+				</div>
 			</div>
 		)
 	}

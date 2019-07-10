@@ -19,14 +19,10 @@ class App extends Component {
 		return (
 			<div id="wrap">
 				<Topbar />
-				<div class="container-fluid">
-					<div class="row no-gutters">
+				<div className="container-fluid">
+					<div className="row no-gutters">
 						<Sidebar1 />
-						<div id="content" class="col-6">
-							<div class="row no-gutters d-flex flex-column">
-								<Content />
-							</div>
-						</div>
+						<Content />
 						<Sidebar2 />
 					</div>
 				</div>

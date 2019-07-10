@@ -3,6 +3,7 @@
 	height:100%;
 	color: white;
 	padding:30px;
+	overflow-y: auto;
 }
 
 #sidebar1 > h3{
