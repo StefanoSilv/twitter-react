@@ -16,15 +16,19 @@ class Routes extends Component {
 			return false
 		}
 	}
-
-	
+	//If checkAuth is true, we want to redirect the user
+	auth = () => {
+		if (this.checkAuth()){
+		window.location.href = '/'
+		}
+	}
 
 	render() {
 		return (
 			<BrowserRouter>
 				<Switch>
-					<Route path="/login" component={() => <Login />} />
-					<Route path="/signup" component={() => <Signup />} />
+					<Route path="/login" component={() => <Login auth={this.auth} />} />
+					<Route path="/signup" component={() => <Signup auth={this.auth} />} />
 					<Route path="/" render={() => <App />} />
 				</Switch>
 			</BrowserRouter>
