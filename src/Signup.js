@@ -38,6 +38,12 @@ class Signup extends Component {
 		})
 	}
 
+	login_redirect = (e) => {
+		if(e){
+			window.location.href = '/login'
+		}
+	}
+
 	//Function to make the password visible
 	// showPassword() {
 	//   var x = document.getElementById("exampleInputPassword1");
@@ -51,29 +57,32 @@ class Signup extends Component {
 	// Render
 	render() {
 		return (
-			<form onSubmit={ (e) => this.signup(e)} >
-				<div className="form-group">
-					<label htmlFor="exampleInputEmail1">Nickname</label>
-					<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
-					className="form-control" id="exampleInputNickname1" placeholder="Enter nickname..." />
-				</div>
-				<div className="form-group">
-					<label htmlFor="exampleInputEmail1">Email address</label>
-					<input type="email" value={this.state.email} onChange={(e) => this.changeEmail(e)}
-					className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-					<small id="emailHelp" className="form-text text-muted">Enter a valid Email address</small>
-				</div>
-				<div className="form-group">
-					<label htmlFor="exampleInputPassword1">Password</label>
-					<input type="password" value={this.state.password} onChange={(e) => this.changePassword(e)}
-					className="form-control" id="exampleInputPassword1" placeholder="Password" />
-				</div>
-				<div className="form-group form-check">
-					<input type="checkbox" className="form-check-input" id="exampleCheck1" />
-					<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
-				</div>
-				<button type="submit" className="btn btn-primary">Submit</button>
-			</form>
+			<div>
+			<div id="login-message"><span>Do you have an account? </span><span id="login-redirect" onClick={(e) => this.login_redirect(e)} >Log-in</span></div>
+				<form onSubmit={ (e) => this.signup(e)} >
+					<div className="form-group">
+						<label htmlFor="exampleInputEmail1">Nickname</label>
+						<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
+						className="form-control" id="exampleInputNickname1" placeholder="Enter nickname..." />
+					</div>
+					<div className="form-group">
+						<label htmlFor="exampleInputEmail1">Email address</label>
+						<input type="email" value={this.state.email} onChange={(e) => this.changeEmail(e)}
+						className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+						<small id="emailHelp" className="form-text text-muted">Enter a valid Email address</small>
+					</div>
+					<div className="form-group">
+						<label htmlFor="exampleInputPassword1">Password</label>
+						<input type="password" value={this.state.password} onChange={(e) => this.changePassword(e)}
+						className="form-control" id="exampleInputPassword1" placeholder="Password" />
+					</div>
+					<div className="form-group form-check">
+						<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+						<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
+					</div>
+					<button type="submit" className="btn btn-primary">Submit</button>
+				</form>
+			</div>
 		)
 	}
 }

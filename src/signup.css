@@ -5,6 +5,18 @@ form{
 	max-width: 500px;
 }
 
+#login-message{
+	float: right;
+	color: white;
+	padding: 30px;
+}
+
+#login-redirect{
+	color: purple;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 
 /* Funzione per mostrare la Password
 
