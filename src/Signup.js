@@ -55,7 +55,7 @@ class Signup extends Component {
 				<div className="form-group">
 					<label htmlFor="exampleInputEmail1">Nickname</label>
 					<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
-					className="form-control" id="exampleInputEmail1" placeholder="Enter nickname..." />
+					className="form-control" id="exampleInputNickname1" placeholder="Enter nickname..." />
 				</div>
 				<div className="form-group">
 					<label htmlFor="exampleInputEmail1">Email address</label>
@@ -69,8 +69,8 @@ class Signup extends Component {
 					className="form-control" id="exampleInputPassword1" placeholder="Password" />
 				</div>
 				<div className="form-group form-check">
-					<input type="checkbox" onclick={ () => this.showPassword()} className="form-check-input" id="exampleCheck1" />
-					<label className="form-check-label" for="exampleCheck1">Show password</label>
+					<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+					<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
 				</div>
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
