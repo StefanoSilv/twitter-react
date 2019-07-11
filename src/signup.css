@@ -16,17 +16,3 @@ form{
 	cursor: pointer;
 	text-decoration: underline;
 }
-
-
-/* Funzione per mostrare la Password
-
-function showPassword() {
-  var x = document.getElementById("exampleInputPassword1");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-onclick="showPassword()" To add to the element with id= "exampleCheck1" */
