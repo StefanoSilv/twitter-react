@@ -24,7 +24,9 @@ class Newtwit extends Component {
 	// Render
 	render() {
 		return (
-			<form id="newtwit" className="" onSubmit={(e , text) => {this.props.createMessage(e , this.state.text); this.clearMessage()}}>
+			<form id="newtwit" className=""
+			onSubmit={(e , text) => {this.props.createMessage(e , this.state.text);
+				this.clearMessage()}}>
 				<div className="input-group mb-3">
 					<input type="text" className="form-control"
 					value={this.state.text} onChange={(e) => this.changeText(e)}
