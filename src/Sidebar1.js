@@ -13,6 +13,7 @@ class Sidebar1 extends Component {
 	//Function to get data from the database and set it in the state
 	componentWillMount() {
 		axios.get('http://localhost:4000/api/hashtags').then( (res) => {
+			console.log(this.state.hashtags, 'this.state.hashtags')
 			this.setState({
 				hashtags: res.data
 			})
@@ -35,7 +36,7 @@ class Sidebar1 extends Component {
 				<h3>#Hashtags</h3>
 				<ul className= "list-unstyled">
 				{
-					this.state.hashtags.map((h) => {
+					this.state.hashtags.map( (h) => {
 						return <Hashtag hashtag={h} key={h._id} selectHashtag={this.selectHashtag} />
 					})
 				}

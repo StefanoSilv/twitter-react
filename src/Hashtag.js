@@ -11,7 +11,9 @@ class Hashtag extends Component {
 	// Render
 	render() {
 		return (
-			<li>{this.props.hashtag}</li>
+
+			<li># {this.props.hashtag.name}</li>
+
 		)
 	}
 }
