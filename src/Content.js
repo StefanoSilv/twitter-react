@@ -21,13 +21,38 @@ class Content extends Component {
 		})
 	}
 
+	//Function to create a message (to be passed to newtwit)
+	createMessage = (e , text) => {
+		e.preventDefault()
+		let message = {
+			body : text,
+			author:'',
+			hashtag:'' 
+		}
+		axios.post(
+			'http://localhost:4000/api/messages',
+			message,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}}
+		).then( (res) => {
+			console.log(message)
+			console.log(res.data);
+			let messages = this.state.messages
+			messages.push(res.data)
+			this.setState({messages})
+		}).catch( (err) => {
+			console.log('err', err);
+		})
+	}
+
 
 	// Render
 	render() {
 		return (
 			<div id="content" className="col-6">
 				<div className="row no-gutters d-flex flex-column">
-					<Newtwit />
+					<Newtwit createMessage={this.createMessage}/>
 					<Oldtwits />
 				</div>
 			</div>
