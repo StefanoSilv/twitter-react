@@ -6,9 +6,20 @@ import Oldtwits from './Oldtwits'
 class Content extends Component {
 	// Data
 	state = {
-
+		messages:[]
 	}
 	// Functions
+	//Functions to take the messages from the database and insert them in the state
+	componentWillMount() {
+		// axios.get('http://localhost:4000/api/messages').then( (res) =>{
+		// 	setState(
+		//
+		// 	)
+		// }).catch( (err) => {
+		//
+		// })
+	}
+
 
 	// Render
 	render() {

@@ -4,7 +4,6 @@ import './Oldtwits.css';
 class Oldtwits extends Component {
 	// Data
 	state = {
-
 	}
 	// Functions
 
