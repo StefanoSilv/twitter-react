@@ -23,13 +23,16 @@ class Login extends Component {
 		e.preventDefault()
 		axios.post(`${process.env.REACT_APP_API}/api/login`, this.state).then( (res) => {
 			if(!res.data.token){
+				console.log('res data 1',res.data);
 				this.setState({
 					error: res.data
 			})}else{
+				console.log('res data 2', res.data);
 				this.setState({
 					error: ''
 				})
 			}
+			console.log('res data',res.data);
 			localStorage.setItem('token', res.data.token)
 			this.props.auth()
 		}).catch( (err) => {
@@ -43,15 +46,28 @@ class Login extends Component {
 		}
 	}
 
+	showPassword(e) {
+		if(e){
+			var x = document.getElementById("exampleInputPassword1");
+		  if (x.type === "password") {
+		    x.type = "text";
+		  } else {
+		    x.type = "password";
+		  }
+		}
+	}
+
 	// Render
 	render() {
 		return (
 			<div>
-			<div id="signup-message"><span>You don't have an account? </span><span id="signup-redirect" onClick={(e) => this.signup_redirect(e)} >Sign-up</span></div>
-				<form>
+			<div id="signup-message"><span>You don't have an account? </span><span id="signup-redirect"
+			onClick={(e) => this.signup_redirect(e)} >Sign-up</span></div>
+				<form onSubmit={(e) => this.login(e)}>
 					<div className="form-group">
 						<label htmlFor="exampleInputEmail1">Email address</label>
-						<input type="email" value={this.state.email} onChange={(e) => this.changeEmail(e)}
+						<input type="email" value={this.state.email}
+						onChange={(e) => this.changeEmail(e)}
 						className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
 						<small id="emailHelp" className="form-text text-muted">Enter a valid Email address</small>
 					</div>
@@ -61,7 +77,7 @@ class Login extends Component {
 						className="form-control" id="exampleInputPassword1" placeholder="Password" />
 					</div>
 					<div className="form-group form-check">
-						<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+						<input onClick={ (e) => this.showPassword(e)} type="checkbox" className="form-check-input" id="exampleCheck1" />
 						<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
 					</div>
 					<button type="submit" className="btn btn-primary">Submit</button>
