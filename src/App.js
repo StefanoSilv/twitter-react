@@ -9,9 +9,16 @@ import Content from './Content'
 class App extends Component {
 	// Data
 	state = {
-
+		hashtag: '5d26cc3f2f4cc70c02869c11' //The default hashtag
 	}
 	// Functions
+
+	getMessages = (id) => {
+		this.setState({
+			hashtag: id
+		})
+	}
+
 
 	// Render
 	render() {
@@ -20,8 +27,8 @@ class App extends Component {
 				<Topbar />
 				<div className="container-fluid">
 					<div className="row no-gutters">
-						<Sidebar1 />
-						<Content />
+						<Sidebar1 getMessages={this.getMessages}/>
+						<Content hashtag={this.state.hashtag} />
 						<Sidebar2 />
 					</div>
 				</div>

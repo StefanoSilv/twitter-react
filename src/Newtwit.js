@@ -32,7 +32,8 @@ class Newtwit extends Component {
 					value={this.state.text} onChange={(e) => this.changeText(e)}
 					placeholder="Your next twit..." />
 					<div className="input-group-append">
-					<button className="btn btn-outline-secondary" type="submit" id="button-addon2">Send</button>
+					<button className="btn btn-outline-secondary" type="submit"
+					id="button-addon2">Send</button>
 					</div>
 				</div>
 			</form>

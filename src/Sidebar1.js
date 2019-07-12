@@ -12,8 +12,7 @@ class Sidebar1 extends Component {
 	// Functions
 	//Function to get data from the database and set it in the state
 	componentWillMount() {
-		axios.get('http://localhost:4000/api/hashtags').then( (res) => {
-			console.log(this.state.hashtags, 'this.state.hashtags')
+		axios.get(`${process.env.REACT_APP_API}/api/hashtags`).then( (res) => {
 			this.setState({
 				hashtags: res.data
 			})
@@ -22,12 +21,10 @@ class Sidebar1 extends Component {
 		})
 	}
 
-	//Function to select the hashtag
-	// selectHashtag = (id) =>{
-	// 	let hashtags = this.state.hashtags
-	// 	let hashtag = hashtags.find( (h) => h._id === id)
-	// 	this.setState({hashtags})
-	// }
+	// Function to select the hashtag
+	selectHashtag = (id) =>{
+		this.props.getMessages(id)
+	}
 
 	// Render
 	render() {

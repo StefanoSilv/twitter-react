@@ -4,7 +4,7 @@ import './Hashtag.css';
 class Hashtag extends Component {
 	// Data
 	state = {
-
+		hashtag: this.props.hashtag
 	}
 	// Functions
 
@@ -12,7 +12,8 @@ class Hashtag extends Component {
 	render() {
 		return (
 
-			<li># {this.props.hashtag.name}</li>
+			<li onClick={ (id) => this.props.selectHashtag(this.state.hashtag._id)} >
+				# {this.state.hashtag.name}</li>
 
 		)
 	}
