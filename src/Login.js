@@ -23,18 +23,19 @@ class Login extends Component {
 		e.preventDefault()
 		axios.post(`${process.env.REACT_APP_API}/api/login`, this.state).then( (res) => {
 			if(!res.data.token){
-				console.log('res data 1',res.data);
 				this.setState({
 					error: res.data
 			})}else{
-				console.log('res data 2', res.data);
 				this.setState({
 					error: ''
 				})
 			}
-			console.log('res data',res.data);
-			localStorage.setItem('token', res.data.token)
-			this.props.auth()
+			if(res.data.token){
+				localStorage.setItem('token', res.data.token)
+				this.props.auth()
+			}else{
+				document.getElementById('error_message').innerHTML='The login credentials are not correct. Try again.'
+			}
 		}).catch( (err) => {
 			console.log('err', err)
 		})
@@ -75,6 +76,7 @@ class Login extends Component {
 						<label htmlFor="exampleInputPassword1">Password</label>
 						<input type="password" value={this.state.password} onChange={(e) => this.changePassword(e)}
 						className="form-control" id="exampleInputPassword1" placeholder="Password" />
+						<small id="error_message"></small>
 					</div>
 					<div className="form-group form-check">
 						<input onClick={ (e) => this.showPassword(e)} type="checkbox" className="form-check-input" id="exampleCheck1" />
