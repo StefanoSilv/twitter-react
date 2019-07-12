@@ -23,6 +23,11 @@ class Sidebar1 extends Component {
 
 	// Function to select the hashtag
 	selectHashtag = (id) =>{
+		let hashtags = this.state.hashtags
+		hashtags.forEach((h) => delete h.active)
+		let hashtag = hashtags.find((h) => h._id === id)
+		hashtag.active = true
+		this.setState({hashtags})
 		this.props.getMessages(id)
 	}
 

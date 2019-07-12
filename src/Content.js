@@ -4,6 +4,7 @@ import Newtwit from './Newtwit'
 import Oldtwits from './Oldtwits'
 import axios from 'axios'
 
+
 class Content extends Component {
 	// Data
 	state = {
@@ -21,15 +22,7 @@ class Content extends Component {
 		}).catch( (err) => {
 			console.log('err', err);
 		})
-
-		//We are taking all the users, but we need the one which is logged in
-		axios.get(`${process.env.REACT_APP_API}/api/users`).then( (res) =>{
-			this.setState({
-				users: res.data
-			})
-		}).catch( (err) => {
-			console.log('err', err);
-		})
+		//Set the date of the message
 
 	}
 
@@ -37,7 +30,6 @@ class Content extends Component {
 	//Function to select the data by the hashtag
 	componentWillReceiveProps(props) {
 		axios.get(`${process.env.REACT_APP_API}/api/messages?hashtag=${props.hashtag}`).then((res) => {
-			console.log('hashtag',res.data);
 			this.setState({
 				messages: res.data
 			})
@@ -52,7 +44,6 @@ class Content extends Component {
 			body : text,
 			hashtag: this.props.hashtag //It's the id coming from App - Sidebar -Hashtag
 		}
-		console.log('message', message);
 		axios.post(
 			`${process.env.REACT_APP_API}/api/messages`,
 			message,
@@ -60,13 +51,14 @@ class Content extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then( (res) => {
-			console.log('res',res);
 			let messages = this.state.messages
 			messages.push(res.data)
+			console.log(messages);
 			this.setState({messages})
 		}).catch( (err) => {
 			console.log('err', err);
 		})
+			// e.preventDefault();
 	}
 
 
