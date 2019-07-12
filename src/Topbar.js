@@ -7,11 +7,17 @@ class Topbar extends Component {
 
 	}
 	// Functions
+	//it refresh the page and clean the hashtag filters
+	topbar_redirect = (e) => {
+		if(e){
+			window.location.href = '/'
+		}
+	}
 
 	// Render
 	render() {
 		return (
-			<div id="topbar"><h1>TORTUGA TWITTER</h1></div>
+			<div id="topbar" onClick={ (e) => this.topbar_redirect(e)}><h1>TORTUGA TWITTER</h1></div>
 		)
 	}
 }
