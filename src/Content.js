@@ -48,14 +48,9 @@ class Content extends Component {
 
 	//Function to create a message (to be passed to newtwit)
 	createMessage = (e , text) => {
-		e.preventDefault()
-		console.log('props', this.props);
-		console.log('state users', this.state.users);
-		console.log('state users name', this.state.users);
 		let message = {
 			body : text,
-			hashtag: this.props.hashtag, //It's the id coming from App - Sidebar -Hashtag
-			// author:
+			hashtag: this.props.hashtag //It's the id coming from App - Sidebar -Hashtag
 		}
 		console.log('message', message);
 		axios.post(
@@ -65,7 +60,7 @@ class Content extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then( (res) => {
-			console.log(res);
+			console.log('res',res);
 			let messages = this.state.messages
 			messages.push(res.data)
 			this.setState({messages})

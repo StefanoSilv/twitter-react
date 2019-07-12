@@ -31,8 +31,14 @@ class Signup extends Component {
 	signup = (e) => {
 		e.preventDefault()
 		axios.post(`${process.env.REACT_APP_API}/api/signup`, this.state).then( (res) =>{
-			localStorage.setItem('token', res.data.token)
-			this.props.auth()
+			console.log("res",res);
+			if (res.data.token) {
+				localStorage.setItem('token', res.data.token)
+				this.props.auth()
+			} else  {
+				document.getElementById('error_message').innerHTML='The name already exists'
+			}
+
 		}).catch( (err) => {
 			console.log('err', err)
 		})
@@ -66,6 +72,7 @@ class Signup extends Component {
 						<label htmlFor="exampleInputEmail1">Nickname</label>
 						<input type="text" value={this.state.name} onChange={(e) => this.changeName(e)}
 						className="form-control" id="exampleInputNickname1" placeholder="Enter nickname..." />
+						<small id="error_message"></small>
 					</div>
 					<div className="form-group">
 						<label htmlFor="exampleInputEmail1">Email address</label>
