@@ -3,6 +3,7 @@ import './Content.css';
 import Newtwit from './Newtwit'
 import Oldtwits from './Oldtwits'
 import axios from 'axios'
+import moment from 'moment'
 
 
 class Content extends Component {
@@ -15,14 +16,13 @@ class Content extends Component {
 	//Functions to take the messages from the database and insert them in the state
 	componentWillMount() {
 		axios.get(`${process.env.REACT_APP_API}/api/messages`).then( (res) =>{
-
+			console.log('messages', res.data);
 			this.setState({
 				messages: res.data
 			})
 		}).catch( (err) => {
 			console.log('err', err);
 		})
-		//Set the date of the message
 
 	}
 
@@ -42,7 +42,8 @@ class Content extends Component {
 	createMessage = (e , text) => {
 		let message = {
 			body : text,
-			hashtag: this.props.hashtag //It's the id coming from App - Sidebar -Hashtag
+			hashtag: this.props.hashtag, //It's the id coming from App - Sidebar -Hashtag
+			date: moment()
 		}
 		axios.post(
 			`${process.env.REACT_APP_API}/api/messages`,
@@ -51,6 +52,7 @@ class Content extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then( (res) => {
+			console.log(message);
 			let messages = this.state.messages
 			messages.push(res.data)
 			console.log(messages);

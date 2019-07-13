@@ -13,6 +13,7 @@ class Oldtwits extends Component {
 		let message = this.state.message
 		message.date = moment(message.date).format('D MMM YYYY - h:mma')
 		this.setState({message})
+		console.log(message.date);
 	}
 
 	// Render
