@@ -4,14 +4,23 @@ import Sidebar1 from './Sidebar1'
 import Sidebar2 from './Sidebar2'
 import Topbar from './Topbar'
 import Content from './Content'
+import axios from 'axios'
 
 
 class App extends Component {
 	// Data
 	state = {
-		hashtag: '5d292eb736a05e4aabb8dd54' //The default hashtag
+		hashtag: ''
 	}
 	// Functions
+
+	componentWillMount(){
+		axios.get(`${process.env.REACT_APP_API}/api/hashtags`).then( (res) =>{
+			this.setState({
+				hashtag:res.data[0]._id //The default hashtag
+			})
+		})
+	}
 
 	getMessages = (id) => {
 		this.setState({
