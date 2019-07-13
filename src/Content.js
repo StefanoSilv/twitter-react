@@ -58,7 +58,7 @@ class Content extends Component {
 		}).catch( (err) => {
 			console.log('err', err);
 		})
-			// e.preventDefault();
+			e.preventDefault();
 	}
 
 
