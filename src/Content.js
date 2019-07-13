@@ -45,22 +45,22 @@ class Content extends Component {
 			hashtag: this.props.hashtag, //It's the id coming from App - Sidebar -Hashtag
 			date: moment()
 		}
-		axios.post(
-			`${process.env.REACT_APP_API}/api/messages`,
-			message,
-			{headers: {
-				Authorization: `Bearer ${localStorage.getItem('token')}`
-			}}
-		).then( (res) => {
-			console.log(message);
-			let messages = this.state.messages
-			messages.push(res.data)
-			console.log(messages);
-			this.setState({messages})
-		}).catch( (err) => {
-			console.log('err', err);
-		})
-			e.preventDefault();
+			axios.post(
+				`${process.env.REACT_APP_API}/api/messages`,
+				message,
+				{headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`
+				}}
+			).then( (res) => {
+				console.log(message);
+				let messages = this.state.messages
+				messages.push(res.data)
+				console.log(messages);
+				this.setState({messages})
+			}).catch( (err) => {
+				console.log('err', err);
+			})
+				// e.preventDefault();
 	}
 
 
